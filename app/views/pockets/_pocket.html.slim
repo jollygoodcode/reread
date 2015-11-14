@@ -1,0 +1,25 @@
+.pocket(style='padding:15px 0; overflow:hidden;')
+  .pocket-image(style='float:left;width:150px')
+    .pocket-image-src(style="width:150px;height:150px;background:url('#{pocket.image}') center center;background-size: 150px 150px;")
+
+  .pocket-info(style='float:right;width:405px;padding-left:15px;')
+    .pocket-title(style='font-size:1.35rem;line-height:1.5rem')
+      strong
+        = link_to pocket.resolved_title, pocket.given_url, style: 'color:#ee4056;text-decoration:none;'
+
+    - if pocket.authors
+      .pocket-author(style='margin-top:5px;font-size:0.9rem;')
+        i ~ by #{pocket.authors}
+
+    - if pocket.excerpt
+      .pocket-excerpt(style='margin-top:10px;line-height:1.15rem;text-align:justify;')
+        = pocket.excerpt.presence
+
+    - if pocket.word_count > 0
+      .pocket-word_count(style='margin-top:10px;margin-bottom:-5px;font-size:0.9rem;')
+        ' - #{pluralize(pocket.word_count, 'word')} (approx. #{pocket.minutes_to_read} minutes)
+
+    .pocket-created_on(style='margin-top:10px;font-size:0.75rem;')
+      ' Saved to Pocket on #{pocket.created_on(user.time_zone)}, #{distance_of_time_in_words_to_now(pocket.created_on(user.time_zone))} ago.
+
+hr(style='height:1px;border:0;background-image:linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));')

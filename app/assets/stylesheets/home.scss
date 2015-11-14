@@ -1,0 +1,55 @@
+.splash {
+  height: 700px;
+  padding: 175px 0;
+
+  background-color: $red;
+}
+
+.splash--large-text {
+  font-family: $head-font;
+  font-size: 8rem;
+
+  color: white;
+}
+
+.splash--small-text {
+  font-family: $head-font;
+  font-size: 2.5rem;
+
+  color: white;
+  line-height: 2.25rem;
+
+  a, a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+.splash--call-to-action {
+  margin-top: 100px;
+  .btn {
+    padding: 15px 20px;
+    font-family: $head-font;
+    font-size: 2.5rem;
+    background-color: white;
+    border: 2px solid darken($red, 15%);
+    border-radius: 6px;
+    color: $red;
+
+    &:hover {
+      background-color: lighten($red, 10%);;
+      color: white;
+    }
+  }
+}
+
+.pitch {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.icon {
+  font-size: 17.5rem;
+  color: $red;
+}

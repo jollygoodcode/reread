@@ -20,4 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  enumerize:
+    setting:
+      schedule:
+        everyday:   Everyday
+        monday:     Every Monday
+        tuesday:    Every Tuesday
+        wednesday:  Every Wednesday
+        thursday:   Every Thursday
+        friday:     Every Friday
+        saturday:   Every Saturday
+        sunday:     Every Sunday

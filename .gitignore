@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+.env
+spec/examples.txt

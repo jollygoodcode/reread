@@ -1,0 +1,25 @@
+.container.instructions
+  .row
+    .col-sm-6
+      p
+        strong> Update your Settings.
+        ' Once you have done so, you will start to receive emails from REREAD.io based on your configured schedule. That's it!
+        ' Just sit back, relax, wait for the emails to arrive, and rediscover your forgotten bookmarks again.
+      br
+      p
+        strong> Give us a Shout-out.
+        ' #{link_to 'Tell your friends on Twitter', 'https://twitter.com/intent/tweet?text=REREAD.io%20is%20awesome!%20Helps%20me%20rediscover%20saved%20and%20forgotten%20bookmarks%20in%20@Pocket.%20Check%20it%20out%20at%20https://www.reread.io', target: '_blank'} about REREAD.io.
+      br
+      p
+        strong> We #{icon 'heart'} Feedback.
+        ' Do you have a feature suggestion, or bug report? Please send us an email at #{link_to 'hello@reread.io', 'mailto:hello@reread.io'}. We read everything.
+    .col-sm-6
+      .well
+        = simple_form_for @settings, url: settings_path do |f|
+          = f.input :email
+          = f.input :time_zone
+          = f.input :send_at
+          = f.input :schedule
+          = f.input :number
+          = f.input :pause
+          = f.submit 'Save Setting', class: 'btn btn-danger'

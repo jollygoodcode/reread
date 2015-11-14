@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title REREAD.io | Rediscover Your Pocket Bookmarks
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    meta name='description' content='Read, and learn again. Time to rediscover those saved and forgotten Pocket bookmarks.'
+  body
+    = render 'layouts/google_analytics'
+
+    nav.navbar
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls='navbar' aria-expanded='false' data-target='#navbar' data-toggle='collapse' type='button'
+            span.sr-only Toggle Navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.logo href='/' REREAD.io
+        #navbar.navbar-collapse.collapse
+          .navbar-right
+            ul.nav.navbar-nav
+              - if user_signed_in?
+                li
+                  = link_to 'Settings', settings_path
+                li
+                  = link_to 'Sign Out', sign_out_path, method: :delete
+              - else
+                li
+                  = link_to 'Sign In with Pocket', '/auth/pocket'
+
+    .container
+      = flash_messages
+
+    = yield
+
+    #footer
+      .text-center
+        ' Built with
+        => icon('heart')
+        ' by #{link_to 'Jolly Good Code', 'http://www.jollygoodcode.com', target: '_blank'}

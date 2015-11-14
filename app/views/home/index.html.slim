@@ -1,0 +1,61 @@
+.splash.text-center
+  .container
+    .splash--large-text
+      p Read and Learn Again
+    .splash--small-text
+      p Time to rediscover those saved and forgotten bookmarks.
+      p = link_to 'Paul Graham explains why.', 'http://www.paulgraham.com/know.html', target: '_blank'
+    .splash--call-to-action
+      = link_to 'Sign In with Pocket', '/auth/pocket', class: 'btn'
+
+.section.pitch
+  .container
+    .section-title.text-center
+      ' The Pitch
+
+    .row
+      .col-sm-8.col-sm-offset-2
+        p
+          ' Do you use #{link_to 'Pocket', 'https://getpocket.com'}? Do you save a ton of bookmarks in it? Do you intend to "read it later"? Do you?
+          ' My answer is "Yes" to all of them. Sometimes I do "read it later", but most of the time I don't, and all these treasure just sits in Pocket.
+
+        p
+          ' The solution (my humble hypothesis), is to send myself one or a few of these forgotten bookmarks everyday through email
+          ' so that I'll be reminded and encouraged to read them.
+
+        p
+          ' In fact, this would not only be useful for finally reading those bookmarks that I have yet to read,
+          ' it'll also be interesting to reread some of the bookmarks that were saved (and read) in the past, and see if
+          ' I would gain new insights from rereading them again, as #{link_to 'described by Paul Graham', 'http://www.paulgraham.com/know.html', target: '_blank'}.
+
+        p
+          ' Read and learn again.
+
+.section
+  .container
+    .section-title.text-center
+      ' The 3 Simple Steps
+
+    .row
+      .col-sm-10.col-sm-offset-1
+        .col-sm-4
+          .icon.text-center
+            = icon('get-pocket')
+          .icon-text
+            strong> Sign in
+            ' with Pocket and we'll be able to access your bookmarks on Pocket. Don't worry, we are only asking for "read" access.
+
+        .col-sm-4
+          .icon.text-center
+            = icon('cogs')
+          .icon-text
+            strong> Configure settings
+            ' to let us know where to send the daily emails to, what time we should deliver them, and how many bookmarks to include in each email.
+
+        .col-sm-4
+          .icon.text-center
+            = icon('envelope')
+          .icon-text
+            strong> Sit back, relax
+            ' and wait for emails to arrive daily in your inbox with your bookmarks.
+            strong Read, and learn again.

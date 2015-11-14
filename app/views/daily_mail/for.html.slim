@@ -1,0 +1,21 @@
+.content(style="width: 100%;background-color:#f3f3f3;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;")
+  .header(style='width:600px;height:100px;margin:0 auto;padding:50px 0 35px;background-color:#fff;border-bottom:10px solid #f3f3f3;text-align:center;')
+    .logo(style='margin-bottom:5px;font-size:2.5rem;color:#ee4056;') REREAD.io
+    .tagline(style='font-style:italic')
+      ' Time to rediscover those saved and forgotten bookmarks
+
+  .container(style='width:570px;margin:0 auto;padding:15px;background-color:#fff;')
+
+    = render partial: 'pockets/pocket', collection: @pockets, locals: { user: @user }
+
+  .footer(style='width:600px;margin-top:10px;margin:0 auto;padding:15px 0;text-align:center;')
+    .container
+      p
+        ' Brought to you by #{link_to 'REREAD.io', 'https://www.reread.io', style: 'color:#ee4056;text-decoration:none;'}.
+
+      p(style='font-size:1.2em;font-style:italic')
+        ' Like this email? Please #{link_to 'share it on Twitter with your friends', 'https://twitter.com/intent/tweet?text=REREAD.io%20is%20awesome!%20Helps%20me%20rediscover%20saved%20and%20forgotten%20bookmarks%20in%20@Pocket.%20Check%20it%20out%20at%20https://www.reread.io', target: '_blank', 'data-skip-click' => true, style: 'color:#ee4056;text-decoration:none;'}.
+        ' Thank you!
+
+      p(style='font-size:0.7rem')
+        ' To stop receiving these emails, sign in to REREAD.io and update your settings. :(
