@@ -19,7 +19,7 @@ class Setting < ActiveRecord::Base
   private
 
     def match_hour_in_tz?(current_time)
-      current_time.in_time_zone(time_zone).strftime('%k:00') == send_at
+      current_time.in_time_zone(time_zone).strftime('%H:00') == send_at
     end
 
     def match_schedule_in_tz?(current_time)

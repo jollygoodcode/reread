@@ -15,14 +15,14 @@ RSpec.describe Setting do
     let(:setting) { create(:setting, time_zone: 'Singapore', send_at: send_at, schedule: schedule)}
 
     context 'current day and time matches send_at and schedule' do
-      let(:send_at) { '13:00' }
+      let(:send_at) { '07:00' }
 
       context 'specific schedule' do
         let(:schedule) { 'wednesday' }
 
         before do
           # 18 Nov 2015 is a Wednesday
-          travel_to Time.new('2015', '11', '18', '13', '35', '45', '+08:00')
+          travel_to Time.new('2015', '11', '18', '07', '35', '45', '+08:00')
         end
 
         it { expect(setting.can_send_now?(Time.current)).to be_truthy }
@@ -33,7 +33,7 @@ RSpec.describe Setting do
 
         before do
           # 20 Nov 2015 is a Friday
-          travel_to Time.new('2015', '11', '20', '13', '35', '45', '+08:00')
+          travel_to Time.new('2015', '11', '20', '07', '35', '45', '+08:00')
         end
 
         it { expect(setting.can_send_now?(Time.current)).to be_truthy }
@@ -41,7 +41,7 @@ RSpec.describe Setting do
     end
 
     context 'only current day matches' do
-      let(:send_at)  { '13:00' }
+      let(:send_at)  { '07:00' }
       let(:schedule) { 'wednesday' }
 
       before do
@@ -53,12 +53,12 @@ RSpec.describe Setting do
     end
 
     context 'only current time matches' do
-      let(:send_at)  { '13:00' }
+      let(:send_at)  { '07:00' }
       let(:schedule) { 'wednesday' }
 
       before do
         # 20 Nov 2015 is a Friday
-        travel_to Time.new('2015', '11', '20', '13', '35', '45', '+08:00')
+        travel_to Time.new('2015', '11', '20', '07', '35', '45', '+08:00')
       end
 
       it { expect(setting.can_send_now?(Time.current)).to be_falsy }
