@@ -13,6 +13,14 @@ class Setting < ActiveRecord::Base
             default: :everyday
 
   def can_send_now?(current_time)
+    Rails.logger.info "[Setting] BEG----------"
+    Rails.logger.info "[Setting] current_time: #{current_time}"
+    Rails.logger.info "[Setting] current_time.in_time_zone(time_zone).strftime('%H:00'): #{current_time.in_time_zone(time_zone).strftime('%H:00')}"
+    Rails.logger.info "[Setting] send_at: #{send_at}"
+    Rails.logger.info "[Setting] current_time.in_time_zone(time_zone).strftime('%A'): #{current_time.in_time_zone(time_zone).strftime('%A')}"
+    Rails.logger.info "[Setting] schedule: #{schedule}"
+    Rails.logger.info "[Setting] END----------"
+
     match_hour_in_tz?(current_time) && match_schedule_in_tz?(current_time)
   end
 
