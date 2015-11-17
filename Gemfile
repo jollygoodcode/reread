@@ -26,7 +26,7 @@ gem 'http'
 gem 'ahoy_email'
 
 # Queue
-gem 'sucker_punch'
+gem 'sidekiq'
 
 # Errors
 gem 'party_foul'

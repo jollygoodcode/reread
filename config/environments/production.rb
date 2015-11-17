@@ -89,7 +89,7 @@ Rails.application.configure do
   }
 
   # Active Job Queue
-  config.active_job.queue_adapter = :sucker_punch
+  config.active_job.queue_adapter = :sidekiq
 
   # Party Foul
   config.middleware.use('PartyFoul::Middleware')

@@ -24,7 +24,9 @@ class RePocket
   end
 
   def send_email
+    Rails.logger.info "[RePocket] Sending Email BEG..."
     DailyMail.for(user, retrieve).deliver_later
+    Rails.logger.info "[RePocket] Sending Email END..."
   end
 
   private
