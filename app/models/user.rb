@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_one  :setting
   has_many :pockets
 
+  has_many :messages, class_name: "Ahoy::Message"
+
   validates_presence_of :username, :token
 
   delegate :email,
