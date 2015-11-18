@@ -20,14 +20,16 @@ if defined?(Sidekiq)
   # NOTE: The configuration hash must have symbolized keys.
   Sidekiq.configure_client do |config|
     config.redis = {
-      url: ENV['REDISCLOUD_URL']
+      url: ENV['REDISCLOUD_URL'],
+      size: 1
     }
   end
 
   # NOTE: The configuration hash must have symbolized keys.
   Sidekiq.configure_server do |config|
     config.redis = {
-      url: ENV['REDISCLOUD_URL']
+      url: ENV['REDISCLOUD_URL'],
+      size: 5
     }
   end
 end
