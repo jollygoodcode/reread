@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :token
 
+  scope :enabled, -> { joins(:setting).where(settings: { pause: false }) }
+
   delegate :email,
            :time_zone,
            :send_at,
