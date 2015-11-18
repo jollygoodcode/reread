@@ -19,8 +19,8 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= [ENV.fetch("WEB_MAX_THREADS", 5), ENV.fetch("DB_POOL", 5)].max %>
-  reaping_frequency: <%= ENV.fetch("DB_REAPING_FREQUENCY", 10) %>
+  pool: <%= [ENV.fetch("WEB_MAX_THREADS", 5).to_i, ENV.fetch("DB_POOL", 5).to_i].max %>
+  reaping_frequency: <%= ENV.fetch("DB_REAPING_FREQUENCY", 10).to_i %>
 
 development:
   <<: *default
