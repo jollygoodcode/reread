@@ -8,7 +8,6 @@ RSpec.describe PocketDecorator do
       Pocket.create!(
         raw: {
           'item_id'        => '885500',
-          'resolved_title' => 'Google',
           'time_added'     => 1447516800,
         }
       )
@@ -29,9 +28,37 @@ RSpec.describe PocketDecorator do
     describe '#given_url' do
       it { expect(decorator.given_url).to eq 'https://getpocket.com/a/read/885500' }
     end
+  end
 
-    describe '#resolved_title' do
-      it { expect(decorator.resolved_title).to eq 'Google' }
+  describe '#resolved_title' do
+    context 'when resolved_title exists' do
+      let(:pocket) do
+        Pocket.create!(
+          raw: {
+            'resolved_title' => 'Naruto The Movie'
+          }
+        )
+      end
+
+      it { expect(decorator.resolved_title).to eq 'Naruto The Movie' }
+    end
+
+    context 'when resolved_title does not exist and given_title exists' do
+      let(:pocket) do
+        Pocket.create!(
+          raw: {
+            'given_title' => 'Naruto'
+          }
+        )
+      end
+
+      it { expect(decorator.resolved_title).to eq 'Naruto' }
+    end
+
+    context 'when resolved_title does not exist and given_title exists' do
+      let(:pocket) { Pocket.create! }
+
+      it { expect(decorator.resolved_title).to eq 'No Title' }
     end
   end
 
