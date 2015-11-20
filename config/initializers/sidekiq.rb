@@ -1,3 +1,5 @@
+require 'sidekiq_calculations'
+
 if defined?(Sidekiq)
   Sidekiq::Worker::ClassMethods.class_eval do
     def perform_async_with_retry(*args)
@@ -19,14 +21,21 @@ if defined?(Sidekiq)
 
   # NOTE: The configuration hash must have symbolized keys.
   Sidekiq.configure_client do |config|
+    sidekiq_calculations = SidekiqCalculations.new
+    sidekiq_calculations.raise_error_for_env!
+
     config.redis = {
       url: ENV['REDISCLOUD_URL'],
-      size: 2
+      size: sidekiq_calculations.client_redis_size
     }
   end
 
   # NOTE: The configuration hash must have symbolized keys.
   Sidekiq.configure_server do |config|
+    sidekiq_calculations = SidekiqCalculations.new
+    sidekiq_calculations.raise_error_for_env!
+
+    config.options[:concurrency] = sidekiq_calculations.server_concurrency_size
     config.redis = {
       url: ENV['REDISCLOUD_URL']
     }
