@@ -1,6 +1,7 @@
-require 'sidekiq_calculations'
-
 if defined?(Sidekiq)
+  require 'sidekiq/testing/inline' unless ENV['REDISCLOUD_URL'].present?
+  require 'sidekiq_calculations'
+
   Sidekiq::Worker::ClassMethods.class_eval do
     def perform_async_with_retry(*args)
       perform_async_count = 0
