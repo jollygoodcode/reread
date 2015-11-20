@@ -24,10 +24,10 @@ Sidekiq Server Configuration failed.
     puma_workers * (puma_threads/2) * web_dynos
   end
 
-  def concurrency_size
+  def server_concurrency_size
     return DEFAULT_SERVER_CONCURRENCY if !Rails.env.production?
 
-    (max_redis_connection - client_redis_size - sidekiq_reserved) / paranoid_divisor
+    (max_redis_connection - client_redis_size - sidekiq_reserved) / worker_dynos / paranoid_divisor
   end
 
   private
@@ -55,8 +55,9 @@ Sidekiq Server Configuration failed.
       Integer(ENV.fetch("WEB_MAX_THREADS", 5))
     end
 
+    # https://github.com/mperham/sidekiq/blob/master/lib/sidekiq/redis_connection.rb#L12
     def sidekiq_reserved
-      2
+      5
     end
 
     # This is added to bring down the value of Concurrency

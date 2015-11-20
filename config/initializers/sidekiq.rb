@@ -25,8 +25,6 @@ if defined?(Sidekiq)
     sidekiq_calculations = SidekiqCalculations.new
     sidekiq_calculations.raise_error_for_env!
 
-    Rails.logger.info "[Sidekiq] Setting Client Concurrency: #{sidekiq_calculations.concurrency_size}"
-    config.options[:concurrency] = sidekiq_calculations.concurrency_size
     config.redis = {
       url: ENV['REDISCLOUD_URL'],
       size: sidekiq_calculations.client_redis_size
@@ -38,8 +36,8 @@ if defined?(Sidekiq)
     sidekiq_calculations = SidekiqCalculations.new
     sidekiq_calculations.raise_error_for_env!
 
-    Rails.logger.info "[Sidekiq] Setting Server Concurrency: #{sidekiq_calculations.concurrency_size}"
-    config.options[:concurrency] = sidekiq_calculations.concurrency_size
+    Rails.logger.info "[Sidekiq] Setting Server Concurrency: #{sidekiq_calculations.server_concurrency_size}"
+    config.options[:concurrency] = sidekiq_calculations.server_concurrency_size
     config.redis = {
       url: ENV['REDISCLOUD_URL']
     }
