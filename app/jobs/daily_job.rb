@@ -9,9 +9,5 @@ class DailyJob < ActiveJob::Base
         RePocketJob.perform_later(user)
       end
     end
-
-  rescue => error
-    PartyFoul::RacklessExceptionHandler.handle(error, {class: self.class.name, method: __method__, params: nil})
-    raise error
   end
 end
