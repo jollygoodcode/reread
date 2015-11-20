@@ -24,7 +24,7 @@ Sidekiq Server Configuration failed.
     puma_workers * (puma_threads/2) * web_dynos
   end
 
-  def server_concurrency_size
+  def concurrency_size
     return DEFAULT_SERVER_CONCURRENCY if !Rails.env.production?
 
     (max_redis_connection - client_redis_size - sidekiq_reserved) / paranoid_divisor
