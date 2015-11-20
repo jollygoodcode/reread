@@ -12,7 +12,7 @@ class RePocket
 
   def retrieve
     @pocket_items ||=
-      (1..user.number).map do |_|
+      (1..user.number.to_i).map do |_|
         random_item = new_random_item
 
         if already_sent?(random_item)
