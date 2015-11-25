@@ -17,7 +17,7 @@ class PocketDecorator < SimpleDelegator
   end
 
   def resolved_title
-    raw['resolved_title'] || raw['given_title'] || 'No Title'
+    raw['resolved_title'].presence || raw['given_title'].presence || 'No Title'
   end
 
   def authors

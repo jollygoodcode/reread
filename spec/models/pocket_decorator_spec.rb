@@ -47,6 +47,7 @@ RSpec.describe PocketDecorator do
       let(:pocket) do
         Pocket.create!(
           raw: {
+            'resolved_title' => '',
             'given_title' => 'Naruto'
           }
         )
