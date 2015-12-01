@@ -9,9 +9,15 @@ class EmailSubscriber
     user = event[:message].user
     url  = event[:url]
 
-    pocket = user.pockets.find_by("raw -> 'given_url' ? '#{url}'")
+    pocket = user.pockets.find_by("raw -> 'item_id' ? '#{get_item_id(url)}'")
     pocket.update(read_at: Time.current) if pocket
   end
+
+  private
+
+    def get_item_id(url)
+      url.gsub('https://getpocket.com/a/read/', '')
+    end
 end
 
 AhoyEmail.subscribers << EmailSubscriber.new
