@@ -11,6 +11,8 @@ class RePocket
   end
 
   def retrieve
+    return [] if response_count == 0
+
     @pocket_items ||=
       (1..user.number.to_i).map do |_|
         random_item = new_random_item
@@ -24,9 +26,13 @@ class RePocket
   end
 
   def send_email
-    Rails.logger.info "[RePocket] Sending Email BEG..."
-    DailyMail.for(user, retrieve).deliver_later
-    Rails.logger.info "[RePocket] Sending Email END..."
+    if response_count == 0
+      Rails.logger.info "[RePocket] Response is empty. Skip sending!"
+    else
+      Rails.logger.info "[RePocket] Sending Email BEG..."
+      DailyMail.for(user, retrieve).deliver_later
+      Rails.logger.info "[RePocket] Sending Email END..."
+    end
   end
 
   private
