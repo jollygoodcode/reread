@@ -13,7 +13,7 @@ class PocketDecorator < SimpleDelegator
   end
 
   def given_url
-    "https://getpocket.com/a/read/#{raw['item_id']}"
+    raw['given_url']
   end
 
   def resolved_title

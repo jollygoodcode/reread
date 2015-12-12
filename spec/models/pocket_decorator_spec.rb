@@ -7,7 +7,8 @@ RSpec.describe PocketDecorator do
     let(:pocket) do
       Pocket.create!(
         raw: {
-          'item_id'        => '885500',
+          'given_url'      => 'https://google.com',
+          'resolved_title' => 'Google',
           'time_added'     => 1447516800,
         }
       )
@@ -26,7 +27,7 @@ RSpec.describe PocketDecorator do
     end
 
     describe '#given_url' do
-      it { expect(decorator.given_url).to eq 'https://getpocket.com/a/read/885500' }
+      it { expect(decorator.given_url).to eq 'https://google.com' }
     end
   end
 
