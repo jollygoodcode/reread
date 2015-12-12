@@ -5,6 +5,8 @@
 AhoyEmail.track utm_params: false
 
 class EmailSubscriber
+  POCKET_READ_URL = 'https://getpocket.com/a/read/'.freeze
+
   def click(event)
     user = event[:message].user
     url  = event[:url]
@@ -16,7 +18,7 @@ class EmailSubscriber
   private
 
     def get_item_id(url)
-      url.gsub('https://getpocket.com/a/read/', '')
+      url.sub(POCKET_READ_URL, ''.freeze)
     end
 end
 
