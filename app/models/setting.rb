@@ -2,7 +2,7 @@ class Setting < ActiveRecord::Base
   extend Enumerize
 
   with_options on: :update do
-    validates_presence_of :email, :time_zone, :send_at, :schedule, :number
+    validates_presence_of :email, :time_zone, :send_at, :schedule, :number, :redirect_to
   end
 
   enumerize :send_at,
