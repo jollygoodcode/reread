@@ -15,7 +15,7 @@
         ' Do you have a feature suggestion, or bug report? Please send us an email at #{link_to 'hello@reread.io', 'mailto:hello@reread.io'}. We read everything.
     .col-sm-6
       .well
-        = simple_form_for @settings, url: settings_path, defaults: { required: false } do |f|
+        = simple_form_for @settings, url: settings_path, defaults: { required: false, include_blank: false} do |f|
           = f.input :email
           = f.input :time_zone
           = f.input :send_at
