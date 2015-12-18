@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
            :schedule,
            :number,
            :redirect_to,
+           :pause,
            :can_send_now?,
            to: :setting
 

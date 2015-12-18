@@ -81,6 +81,28 @@ RSpec.describe RePocket do
         expect(repocket.retrieve).to be_blank
       end
     end
+
+    context '401 unauthorized' do
+      before do
+        stub_pocket_get_401_request(user.token)
+      end
+
+      it 'fails gracefully' do
+        expect {
+          repocket.retrieve
+        }.not_to change(Pocket, :count)
+
+        expect(repocket.retrieve).to be_blank
+      end
+
+      it 'sets user to pause' do
+        expect(user.pause).to be_falsey
+
+        repocket.retrieve
+
+        expect(user.pause).to be_truthy
+      end
+    end
   end
 
   describe '#send_email' do
