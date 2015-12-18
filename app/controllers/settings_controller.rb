@@ -26,6 +26,6 @@ class SettingsController < ApplicationController
   private
 
     def model_params
-      params.require(:setting).permit(:email, :time_zone, :send_at, :schedule, :number, :pause)
+      params.require(:setting).permit(:email, :time_zone, :send_at, :schedule, :number, :redirect_to, :pause)
     end
 end

@@ -15,6 +15,9 @@ class Setting < ActiveRecord::Base
   enumerize :number,
             in: %w(1 2 3 4 5 6 7 8 9 10)
 
+  enumerize :redirect_to,
+            in: %w(given_url pocket_url)
+
   def can_send_now?(current_time)
     Rails.logger.info "[Setting] BEG----------"
     Rails.logger.info "[Setting] current_time: #{current_time}"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115083822) do
+ActiveRecord::Schema.define(version: 20151218002847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,11 +47,12 @@ ActiveRecord::Schema.define(version: 20151115083822) do
     t.string   "time_zone"
     t.string   "send_at"
     t.string   "schedule"
-    t.integer  "number",     default: 1
-    t.boolean  "pause",      default: false
+    t.integer  "number",      default: 1
+    t.boolean  "pause",       default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "redirect_to", default: "given_url"
   end
 
   add_index "settings", ["user_id"], name: "index_settings_on_user_id", using: :btree

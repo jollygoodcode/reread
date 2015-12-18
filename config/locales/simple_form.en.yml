@@ -31,9 +31,10 @@ en:
     #     age: 'Select your age'
     labels:
       setting:
-        email:      Email
-        time_zone:  Time Zone
-        send_at:    What time would you like to receive the email?
-        schedule:   When would you like to receive the email?
-        number:     How many Pocket items would you like to have in the email?
-        pause:      Stop sending me emails. (You don't really want to click this)
+        email:        Email
+        time_zone:    Time Zone
+        send_at:      What time would you like to receive the email?
+        schedule:     When would you like to receive the email?
+        number:       How many Pocket items would you like to have in the email?
+        redirect_to:  Where would you like to be redirected to?
+        pause:        Stop sending me emails. (You don't really want to click this)

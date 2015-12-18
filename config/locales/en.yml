@@ -31,3 +31,6 @@ en:
         friday:     Every Friday
         saturday:   Every Saturday
         sunday:     Every Sunday
+      redirect_to:
+        given_url:  Redirect to Article/Video URL
+        pocket_url: Redirect to Pocket and show Article/Video within Pocket
