@@ -5,7 +5,7 @@
   .pocket-info(style='float:right;width:405px;padding-left:15px;')
     .pocket-title(style='font-size:1.35rem;line-height:1.5rem')
       strong
-        = link_to pocket.resolved_title, pocket.given_url, style: 'color:#ee4056;text-decoration:none;'
+        = link_to pocket.resolved_title, pocket.url(user.redirect_to), style: 'color:#ee4056;text-decoration:none;'
 
     - if pocket.authors
       .pocket-author(style='margin-top:5px;font-size:0.9rem;')

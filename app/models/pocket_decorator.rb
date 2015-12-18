@@ -12,8 +12,12 @@ class PocketDecorator < SimpleDelegator
     end
   end
 
-  def given_url
-    raw['given_url']
+  def url(redirect_to)
+    if redirect_to == :pocket_url
+      "https://getpocket.com/a/read/#{raw['item_id']}"
+    else
+      raw['given_url']
+    end
   end
 
   def resolved_title
