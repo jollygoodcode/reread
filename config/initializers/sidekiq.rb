@@ -1,5 +1,5 @@
 if defined?(Sidekiq)
-  require 'sidekiq/testing/inline' unless ENV['REDISCLOUD_URL'].present?
+  require 'sidekiq/testing/inline' unless ENV['REDIS_URL'].present?
   require 'sidekiq_calculations'
 
   Sidekiq::Worker::ClassMethods.class_eval do
@@ -26,7 +26,7 @@ if defined?(Sidekiq)
     sidekiq_calculations.raise_error_for_env!
 
     config.redis = {
-      url: ENV['REDISCLOUD_URL'],
+      url: ENV['REDIS_URL'],
       size: sidekiq_calculations.client_redis_size
     }
   end
@@ -39,7 +39,7 @@ if defined?(Sidekiq)
     Rails.logger.info "[Sidekiq] Setting Server Concurrency: #{sidekiq_calculations.server_concurrency_size}"
     config.options[:concurrency] = sidekiq_calculations.server_concurrency_size
     config.redis = {
-      url: ENV['REDISCLOUD_URL']
+      url: ENV['REDIS_URL']
     }
   end
 end
