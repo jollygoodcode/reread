@@ -8,7 +8,7 @@ RSpec.describe RePocket do
   end
 
   describe '#retrieve' do
-    let(:repocket) { RePocket.new(user) }
+    let(:service) { RePocket.new(user) }
 
     context 'list is non-empty' do
       before do
@@ -20,10 +20,10 @@ RSpec.describe RePocket do
 
         it 'retrieves random Pockets' do
           expect {
-            repocket.retrieve
+            service.retrieve
           }.to change(Pocket, :count).by(3)
 
-          expect(repocket.retrieve.count).to eq 3
+          expect(service.retrieve.count).to eq 3
         end
       end
 
@@ -75,10 +75,10 @@ RSpec.describe RePocket do
 
       it 'returns [] array' do
         expect {
-          repocket.retrieve
+          service.retrieve
         }.not_to change(Pocket, :count)
 
-        expect(repocket.retrieve).to be_blank
+        expect(service.retrieve).to be_blank
       end
     end
 
@@ -89,16 +89,16 @@ RSpec.describe RePocket do
 
       it 'fails gracefully' do
         expect {
-          repocket.retrieve
+          service.retrieve
         }.not_to change(Pocket, :count)
 
-        expect(repocket.retrieve).to be_blank
+        expect(service.retrieve).to be_blank
       end
 
       it 'sets user to pause' do
         expect(user.pause).to be_falsey
 
-        repocket.retrieve
+        service.retrieve
 
         expect(user.pause).to be_truthy
       end
@@ -106,7 +106,7 @@ RSpec.describe RePocket do
   end
 
   describe '#send_email' do
-    let(:repocket) { RePocket.new(user) }
+    let(:service) { RePocket.new(user) }
 
     context 'list is non-empty' do
       before do
@@ -116,7 +116,7 @@ RSpec.describe RePocket do
       it 'sends email' do
         expect(DailyMail).to receive(:for) { double.as_null_object }
 
-        repocket.send_email
+        service.send_email
       end
     end
 
@@ -128,7 +128,7 @@ RSpec.describe RePocket do
       it 'sends email' do
         expect(DailyMail).not_to receive(:for)
 
-        repocket.send_email
+        service.send_email
       end
     end
   end

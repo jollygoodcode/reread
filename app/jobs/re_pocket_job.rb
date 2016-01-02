@@ -1,6 +1,6 @@
 class RePocketJob < ActiveJob::Base
   def perform(user)
-    repocket = RePocket.new(user)
-    repocket.run
+    service = RePocket.new(user)
+    service.run
   end
 end
