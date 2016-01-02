@@ -2,7 +2,7 @@ class Setting < ActiveRecord::Base
   extend Enumerize
 
   with_options on: :update do
-    validates_presence_of :email, :time_zone, :send_at, :schedule, :number, :redirect_to
+    validates_presence_of :email, :time_zone, :send_at, :schedule, :number, :redirect_to, :archive
   end
 
   enumerize :send_at,
@@ -17,6 +17,9 @@ class Setting < ActiveRecord::Base
 
   enumerize :redirect_to,
             in: %w(given_url pocket_url)
+
+  enumerize :archive,
+            in: {"Yes" => true, "No" => false}
 
   def can_send_now?(current_time)
     Rails.logger.info "[Setting] BEG----------"

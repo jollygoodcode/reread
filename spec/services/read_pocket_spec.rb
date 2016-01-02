@@ -10,7 +10,7 @@ RSpec.describe ReadPocket do
       let(:redirect_url) { "https://getpocket.com/a/read/12345" }
       let!(:pocket)      { user.pockets.create!(raw: { item_id: "12345" }) }
 
-      before { user.setting = create(:setting, redirect_to: :pocket_url) }
+      before { user.setting = create(:setting, redirect_to: :pocket_url, archive: false) }
 
       it "marks read_at" do
         expect {
@@ -43,7 +43,7 @@ RSpec.describe ReadPocket do
       let(:redirect_url) { "https://www.google.com" }
       let!(:pocket)      { user.pockets.create!(raw: { given_url: "https://www.google.com" }) }
 
-      before { user.setting = create(:setting, redirect_to: :given_url) }
+      before { user.setting = create(:setting, redirect_to: :given_url, archive: false) }
 
       it "marks read_at" do
         expect {

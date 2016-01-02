@@ -37,4 +37,5 @@ en:
         schedule:     When would you like to receive the email?
         number:       How many Pocket items would you like to have in the email?
         redirect_to:  Where would you like to be redirected to?
+        archive:      Would you like to "Archive" the Pocket item in Pocket on read?
         pause:        Stop sending me emails. (You don't really want to click this)

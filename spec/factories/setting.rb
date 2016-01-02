@@ -7,5 +7,6 @@ FactoryGirl.define do
     schedule    'everyday'
     number      1
     redirect_to :pocket_url
+    archive     true
   end
 end
