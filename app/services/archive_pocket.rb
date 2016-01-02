@@ -26,7 +26,7 @@ class ArchivePocket
     attr_accessor :user, :pocket
 
     def url
-      "#{POCKET_URL}?consumer_key=#{ENV['POCKET_CONSUMER_KEY']}&access_token=#{user.token}&actions=#{actions}"
+      "#{POCKET_URL}?consumer_key=#{ENV["POCKET_CONSUMER_KEY_V#{user.api_key}"]}&access_token=#{user.token}&actions=#{actions}"
     end
 
     def actions

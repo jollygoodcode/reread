@@ -4,7 +4,7 @@ RSpec.describe ArchivePocket do
   include ActiveSupport::Testing::TimeHelpers
 
   describe "#archive" do
-    let(:user)    { create(:user) }
+    let(:user)    { create(:user, api_key: 2) }
     let(:pocket)  { user.pockets.create!(raw: { "item_id" => "12345" }) }
 
     let(:service) { ArchivePocket.new(pocket) }

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RePocket do
   let(:user) do
-    user = create(:user)
+    user = create(:user, api_key: 1)
     user.create_setting
     user
   end

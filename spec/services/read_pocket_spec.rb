@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe ReadPocket do
   describe "#read!" do
-    let(:user) { create(:user) }
+    let(:user) { create(:user, api_key: 2) }
 
     let(:service) { ReadPocket.new(user, redirect_url) }
 

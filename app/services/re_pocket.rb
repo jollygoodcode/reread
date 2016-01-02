@@ -40,7 +40,7 @@ class RePocket
     attr_reader :user
 
     def url
-      "#{POCKET_URL}?consumer_key=#{ENV['POCKET_CONSUMER_KEY']}&access_token=#{user.token}&detailType=complete"
+      "#{POCKET_URL}?consumer_key=#{ENV["POCKET_CONSUMER_KEY_V#{user.api_key}"]}&access_token=#{user.token}&detailType=complete"
     end
 
     def response
