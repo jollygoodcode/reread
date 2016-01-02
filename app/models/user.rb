@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
   before_create :generate_remember_token
 
   def self.find_or_create_with(oauth_info)
-    User
-      .where(username: oauth_info[:username])
-      .first_or_create!(token: oauth_info[:token])
+    user = User.where(username: oauth_info[:username]).first_or_create!(token: oauth_info[:token])
+    user.update(token: oauth_info[:token])
+    user
   end
 
   def token=(value)
