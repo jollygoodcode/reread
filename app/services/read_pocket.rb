@@ -16,7 +16,7 @@ class ReadPocket < ActiveJob::Base
 
     pocket.update(read_at: Time.current)
 
-    ArchivePocketJob.perform_later(pocket) if user.archive
+    ArchivePocketJob.perform_later(pocket) if user.setting.archive?
   end
 
   private
