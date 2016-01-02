@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   has_one  :setting
   has_many :pockets
 
@@ -15,6 +14,7 @@ class User < ActiveRecord::Base
            :schedule,
            :number,
            :redirect_to,
+           :archive,
            :pause,
            :can_send_now?,
            to: :setting
