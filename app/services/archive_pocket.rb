@@ -33,7 +33,7 @@ class ArchivePocket
       [
         {
           action:  'archive',
-          item_id: pocket.raw['item_id'].to_i,
+          item_id: pocket.item_id,
           time:    Time.now.to_i
         }
       ].to_json
