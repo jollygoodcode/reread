@@ -32,8 +32,8 @@ class ArchivePocket
     def actions
       [
         {
-          action:  "archive",
-          item_id: pocket.raw["item_id"].to_i,
+          action:  'archive',
+          item_id: pocket.raw['item_id'].to_i,
           time:    Time.now.to_i
         }
       ].to_json

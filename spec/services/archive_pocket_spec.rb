@@ -1,16 +1,16 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe ArchivePocket do
   include ActiveSupport::Testing::TimeHelpers
 
-  describe "#archive" do
+  describe '#archive' do
     let(:user)    { create(:user, api_key: 2) }
-    let(:pocket)  { user.pockets.create!(raw: { "item_id" => "12345" }) }
+    let(:pocket)  { user.pockets.create!(raw: { 'item_id' => '12345' }) }
 
     let(:service) { ArchivePocket.new(pocket) }
 
-    context "success" do
-      it "is success" do
+    context 'success' do
+      it 'is success' do
         travel_to 5.minutes.ago do
           stub_pocket_send_request(user.token, 12345, Time.current.to_i)
 
@@ -19,8 +19,8 @@ RSpec.describe ArchivePocket do
       end
     end
 
-    context "error" do
-      it "raises error" do
+    context 'error' do
+      it 'raises error' do
         travel_to 5.minutes.ago do
           stub_pocket_send_401_request(user.token, 12345, Time.current.to_i)
 

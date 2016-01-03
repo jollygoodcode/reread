@@ -24,10 +24,10 @@ RSpec.describe SessionsController do
         end
       end
 
-      context "with a new token" do
+      context 'with a new token' do
         let!(:user) { create(:user, username: username, token: "old-#{token}") }
 
-        it "updates token" do
+        it 'updates token' do
           expect { do_request }.not_to change(User, :count)
 
           expect(user.reload.token).to eq token
@@ -47,7 +47,7 @@ RSpec.describe SessionsController do
     end
   end
 
-  describe "#destroy" do
+  describe '#destroy' do
     def do_request
       delete :destroy
     end

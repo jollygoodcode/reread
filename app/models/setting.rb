@@ -19,7 +19,7 @@ class Setting < ActiveRecord::Base
             in: %w(given_url pocket_url)
 
   enumerize :archive,
-            in: {"Yes" => true, "No" => false}
+            in: { 'Yes' => true, 'No' => false }
 
   def can_send_now?(current_time)
     Rails.logger.info "[Setting] BEG----------"
