@@ -1,8 +1,5 @@
 class ReadPocketJob < ActiveJob::Base
   def perform(user, url)
-    service = ReadPocket.new(user, url)
-    service.run
+    ReadPocket.new(user, url).run
   end
 end
-
-
