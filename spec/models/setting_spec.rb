@@ -9,6 +9,8 @@ RSpec.describe Setting do
     it { is_expected.to validate_presence_of(:send_at).on(:update) }
     it { is_expected.to validate_presence_of(:schedule).on(:update) }
     it { is_expected.to validate_presence_of(:number).on(:update) }
+    it { is_expected.to validate_presence_of(:state).on(:update) }
+    it { is_expected.to validate_presence_of(:age_months).on(:update) }
     it { is_expected.to validate_presence_of(:redirect_to).on(:update) }
     it { is_expected.to validate_presence_of(:archive).on(:update) }
   end
