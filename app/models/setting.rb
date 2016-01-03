@@ -15,6 +15,12 @@ class Setting < ActiveRecord::Base
   enumerize :number,
             in: %w(1 2 3 4 5 6 7 8 9 10)
 
+  enumerize :state,
+            in: %w(all unread archive)
+
+  enumerize :age_months,
+            in: { '0' => 0, '3' => 3, '6' => 6, '9' => 9, '12' => 12 }
+
   enumerize :redirect_to,
             in: %w(given_url pocket_url)
 
