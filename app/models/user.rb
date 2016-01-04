@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
            :send_at,
            :schedule,
            :number,
+           :state,
+           :age_months,
            :redirect_to,
            :pause,
            :can_send_now?,
