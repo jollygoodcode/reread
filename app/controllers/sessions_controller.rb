@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_or_create_with(oauth_info)
+    upgrade_api_key_for(user)
     create_session_for(user)
 
     redirect_to settings_path
@@ -21,6 +22,12 @@ class SessionsController < ApplicationController
       username: request.env['omniauth.auth']['uid'],
       token: request.env['omniauth.auth']['credentials']['token']
     }
+  end
+
+  # When user logins now, they will be using the new API key which contains `Read` and `Modify` permission.
+  # Hence, Upgrades user to use the new API key.
+  def upgrade_api_key_for(user)
+    user.update(api_key: 2)
   end
 
   def create_session_for(user)

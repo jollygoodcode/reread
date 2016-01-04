@@ -31,6 +31,16 @@ en:
         friday:     Every Friday
         saturday:   Every Saturday
         sunday:     Every Sunday
+      state:
+        all:        Both Unread and Archived
+        unread:     Only Unread
+        archive:    Only Archived
+      age_months:
+        '0':        Any Time
+        '3':        Select Pocket items from 3 months ago
+        '6':        Select Pocket items from 6 months ago
+        '9':        Select Pocket items from 9 months ago
+        '12':       Select Pocket items from 12 months ago
       redirect_to:
         given_url:  Redirect to Article/Video URL
         pocket_url: Redirect to Pocket and show Article/Video within Pocket

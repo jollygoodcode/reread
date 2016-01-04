@@ -40,13 +40,14 @@ class RePocket
     attr_reader :user
 
     def url
-      "#{POCKET_URL}?consumer_key=#{ENV['POCKET_CONSUMER_KEY']}&access_token=#{user.token}&detailType=complete"
+      "#{POCKET_URL}?consumer_key=#{ENV["POCKET_CONSUMER_KEY_V#{user.api_key}"]}&access_token=#{user.token}&detailType=complete&state=#{user.state}"
     end
 
     def response
       @response ||=
         begin
           _response = HTTP.get(url)
+
           if _response.status == 401
             # User has probably revoked our permissions. Hence, let's pause it.
             user.setting.update(pause: true)
@@ -59,8 +60,23 @@ class RePocket
         end
     end
 
+    def response_items
+      @response_items ||=
+        begin
+          _list = response['list'].respond_to?(:values) ? response['list'].values : response['list']
+
+          if user.age_months == 0
+            _list
+          else
+            _list.select do |item|
+              Time.at(item['time_added'].to_i).utc < user.age_months.value.months.ago
+            end
+          end
+        end
+    end
+
     def response_count
-      response['list'].count
+      response_items.count
     end
 
     def response_random_index
@@ -68,7 +84,7 @@ class RePocket
     end
 
     def response_random_item
-      response['list'].values[response_random_index]
+      response_items[response_random_index]
     end
 
     def new_random_item

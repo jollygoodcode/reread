@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   has_one  :setting
   has_many :pockets
 
@@ -14,6 +13,8 @@ class User < ActiveRecord::Base
            :send_at,
            :schedule,
            :number,
+           :state,
+           :age_months,
            :redirect_to,
            :pause,
            :can_send_now?,
@@ -22,9 +23,9 @@ class User < ActiveRecord::Base
   before_create :generate_remember_token
 
   def self.find_or_create_with(oauth_info)
-    User
-      .where(username: oauth_info[:username])
-      .first_or_create!(token: oauth_info[:token])
+    user = User.where(username: oauth_info[:username]).first_or_create!(token: oauth_info[:token])
+    user.update(token: oauth_info[:token])
+    user
   end
 
   def token=(value)

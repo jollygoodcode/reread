@@ -14,12 +14,24 @@ RSpec.describe SessionsController do
     context 'when user already exists' do
       let!(:user) { create(:user, username: username, token: token) }
 
-      it 'creates user and creates session' do
-        expect { do_request }.not_to change(User, :count)
+      context "with same token" do
+        it 'creates user and creates session' do
+          expect { do_request }.not_to change(User, :count)
 
-        expect(session[:remember_token]).to eq user.remember_token
+          expect(session[:remember_token]).to eq user.remember_token
 
-        expect(response).to redirect_to settings_path
+          expect(response).to redirect_to settings_path
+        end
+      end
+
+      context 'with a new token' do
+        let!(:user) { create(:user, username: username, token: "old-#{token}") }
+
+        it 'updates token' do
+          expect { do_request }.not_to change(User, :count)
+
+          expect(user.reload.token).to eq token
+        end
       end
     end
 
@@ -35,7 +47,7 @@ RSpec.describe SessionsController do
     end
   end
 
-  describe "#destroy" do
+  describe '#destroy' do
     def do_request
       delete :destroy
     end
