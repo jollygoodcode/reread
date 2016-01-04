@@ -54,7 +54,7 @@ end
 
 group :test do
   gem 'faker'
-  gem 'webmock', git: "https://github.com/bblimke/webmock.git"
+  gem 'webmock', git: 'https://github.com/bblimke/webmock.git'
   gem 'shoulda'
 end
 
