@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/bblimke/webmock.git
+  revision: f9e41f6d3d382720befb15b2eb25f33a089e77e4
+  specs:
+    webmock (1.22.3)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -270,10 +279,6 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    webmock (1.22.3)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff
 
 PLATFORMS
   ruby
@@ -311,7 +316,7 @@ DEPENDENCIES
   turbolinks
   uglifier
   web-console
-  webmock
+  webmock!
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
