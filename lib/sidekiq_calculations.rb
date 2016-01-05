@@ -46,13 +46,13 @@ Sidekiq Server Configuration failed.
     # Copied from `config/puma.rb`.
     # If default changes, then this needs to be updated
     def puma_workers
-      Integer(ENV.fetch("WEB_CONCURRENCY", 2))
+      Integer(ENV.fetch('WEB_CONCURRENCY', 2))
     end
 
     # Copied from `config/puma.rb`.
     # If default changes, then this needs to be updated
     def puma_threads
-      Integer(ENV.fetch("WEB_MAX_THREADS", 5))
+      Integer(ENV.fetch('WEB_MAX_THREADS', 5))
     end
 
     # https://github.com/mperham/sidekiq/blob/master/lib/sidekiq/redis_connection.rb#L12
