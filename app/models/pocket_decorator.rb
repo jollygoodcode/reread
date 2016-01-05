@@ -1,5 +1,4 @@
 class PocketDecorator < SimpleDelegator
-
   def created_on(time_zone)
     Time.at(raw['time_added'].to_i).in_time_zone(time_zone).strftime('%e %b %Y')
   end
