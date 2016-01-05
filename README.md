@@ -21,14 +21,13 @@ Runs at https://www.reread.io
 This app experiments with:
 
 - [Pocket API](https://getpocket.com/developer/)
-- [sucker_punch](https://github.com/brandonhilkert/sucker_punch)
-- [party_foul](https://github.com/dockyard/party_foul), with JollyGoodBot user
+- [party_foul](https://github.com/dockyard/party_foul)
 - [ahoy_email](https://github.com/ankane/ahoy_email)
 
 ## ENV
 
 - For POCKET_CONSUMER_KEY_V<number>, read Step 1 of https://getpocket.com/developer/docs/authentication
-- For PARTYFOUL_*, look in JollyGoodBot user's settings
+- For PARTYFOUL_*, create an oauth token
 
 ## Why `POCKET_CONSUMER_KEY_V1` and `POCKET_CONSUMER_KEY_V2`?
 
