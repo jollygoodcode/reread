@@ -1,0 +1,47 @@
+{
+  "name": "reread",
+  "description": "Read and Learn again - Time to rediscover those saved and forgotten bookmarks. ",
+  "repository": "https://github.com/jollygoodcode/reread",
+  "logo": "https://cloud.githubusercontent.com/assets/1000669/10200839/41b802ac-67db-11e5-8427-3da4b1264fe4.jpg",
+  "keywords": ["ruby", "rails", "pocket", "bookmarks", "timehop", "email"],
+  "env": {
+    "WWW_HOSTNAME": {
+      "description": "Your Heroku App url without scheme (**app-name.herokuapp.com**)",
+      "required": true
+    },
+    "POCKET_CONSUMER_KEY_V2": {
+      "description": "Obtain a Pocket API key with `modify` and `read` permissions via https://getpocket.com/developer/docs/authentication",
+      "required": true
+    },
+    "DB_POOL": {
+      "description": "Database Pool http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
+      value: 20,
+      "required": true
+    },
+    "DB_REAPING_FREQUENCY": {
+      "description": "Database Reaping Frequency",
+      value: 10,
+      "required": true
+    },
+    "MAX_REDIS_CONNECTION": {
+      "description": "MAX_REDIS_CONNECTION http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
+      value: 30,
+      "required": true
+    },
+    "NUMBER_OF_WEB_DYNOS": {
+      "description": "NUMBER_OF_WEB_DYNOS http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
+      value: 1,
+      "required": true
+    },
+    "NUMBER_OF_WORKER_DYNOS": {
+      "description": "NUMBER_OF_WORKER_DYNOS http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
+      value: 1,
+      "required": true
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    "heroku-redis:hobby-dev",
+    "sendgrid:starter"
+  ]
+}
