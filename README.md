@@ -10,7 +10,7 @@ You can use it as a service at https://www.reread.io.
 
 Alternatively, you can also host an instance of it on Heroku. Read the Setup that follows.
 
-You might want to read the "[Learnings from Building reread.io](https://medium.com/jolly-good-notes/learnings-from-building-reread-io-46f57871e124#.aenkre6w2)" too.
+_You might want to read the "[Learnings from Building reread.io](https://medium.com/jolly-good-notes/learnings-from-building-reread-io-46f57871e124#.aenkre6w2)" too._
 
 ## Deploy on Heroku
 
