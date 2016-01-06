@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/jollygoodcode/reread/badges/gpa.svg)](https://codeclimate.com/github/jollygoodcode/reread)
 
-Read and Learn again - Time to rediscover those saved and forgotten bookmarks. 
+Read and Learn again - Time to rediscover those saved and forgotten bookmarks.
 
 reread.io is a service which sends you an email (everyday or weekly) containing your unread and/or archived [Pocket](https://getpocket.com) links.
 
@@ -14,19 +14,19 @@ _You might want to read the "[Learnings from Building reread.io](https://medium.
 
 ## Deploy on Heroku
 
-1. Deploy
+### 1. Deploy
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-  
+
 After you have deployed the app on Heroku, the following Elements would have been enabled:
 
 - Heroku Hobby Postgres Database
 - Heroku Hobby Redis
 - SendGrid
 
-2. Setup ENV Config
+### 2. Setup ENV Config
 
-** Pocket API **
+#### Pocket API
 
 ```
 heroku config:add POCKET_CONSUMER_KEY_V2=...
@@ -36,7 +36,7 @@ Read Step 1 of https://getpocket.com/developer/docs/authentication to obtain a P
 
 IMPORTANT! You will need `modify` and `read` permissions for your Pocket API key.
 
-** WWW_HOSTNAME **
+#### `WWW_HOSTNAME`
 
 ```
 heroku config:add WWW_HOSTNAME=<reread-clone-name>.herokuapp.com
@@ -44,7 +44,7 @@ heroku config:add WWW_HOSTNAME=<reread-clone-name>.herokuapp.com
 
 This is required for ActionMailer config.
 
-** Sidekiq Settings **
+#### Sidekiq Settings
 
 Read our [blog post](http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html) to understand all these settings.
 
@@ -58,7 +58,7 @@ heroku config:add NUMBER_OF_WEB_DYNOS=1
 heroku config:add NUMBER_OF_WORKER_DYNOS=1
 ```
 
-3. Optional
+### 3. Optional
 
 We use [PartyFoul](https://github.com/dockyard/party_foul) for error tracking. Follow their README to get it setup.
 
@@ -71,8 +71,8 @@ heroku config:add PARTYFOUL_REPO=reread
 ```
 
 We use [Skylight](https://www.skylight.io) for basic app performance monitoring. Sign up and follow their instructions.
- 
-ENV vars required: 
+
+ENV vars required:
 
 ```
 heroku config:add SKYLIGHT_AUTHENTICATION=...
@@ -101,10 +101,10 @@ the App would require `Modify` permission as well.
 Unfortunately, Pocket doesn't allow updates to the access permissions for an App once it's been created,
 so the only way to make it work is to create a new API key in Pocket with `read` and `modify` permissions.
 
-Since there are users (at https://www.reread.io) who have signed in using the earlier API key (and they may not sign in again) 
+Since there are users (at https://www.reread.io) who have signed in using the earlier API key (and they may not sign in again)
 the App thus have to support using `*_V1` for the old users and use `*_V2` for the new users (or users who re-auth).
-                                   
-_You only need `*_V2` set if you are deploying a new instance of reread._ 
+
+_You only need `*_V2` set if you are deploying a new instance of reread._
 
 ## Contributing
 
@@ -126,4 +126,4 @@ Please see the [LICENSE.md](/LICENSE.md) file.
 
 [![Jolly Good Code](https://cloud.githubusercontent.com/assets/1000669/9362336/72f9c406-46d2-11e5-94de-5060e83fcf83.jpg)](http://www.jollygoodcode.com)
 
-We specialise in rapid development of high quality MVPs. [Hire us](http://www.jollygoodcode.com/#get-in-touch) to turn your product idea into reality. 
+We specialise in rapid development of high quality MVPs. [Hire us](http://www.jollygoodcode.com/#get-in-touch) to turn your product idea into reality.
