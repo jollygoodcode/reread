@@ -1,5 +1,7 @@
 # reread.io
 
+[![Code Climate](https://codeclimate.com/github/jollygoodcode/reread/badges/gpa.svg)](https://codeclimate.com/github/jollygoodcode/reread)
+
 Read and Learn again - Time to rediscover those saved and forgotten bookmarks. 
 
 reread.io is a service which sends you an email (everyday or weekly) containing your unread and/or archived [Pocket](https://getpocket.com) links.
