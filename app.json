@@ -15,27 +15,27 @@
     },
     "DB_POOL": {
       "description": "Database Pool http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
-      value: 20,
+      "value": 20,
       "required": true
     },
     "DB_REAPING_FREQUENCY": {
       "description": "Database Reaping Frequency",
-      value: 10,
+      "value": 10,
       "required": true
     },
     "MAX_REDIS_CONNECTION": {
       "description": "MAX_REDIS_CONNECTION http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
-      value: 30,
+      "value": 30,
       "required": true
     },
     "NUMBER_OF_WEB_DYNOS": {
       "description": "NUMBER_OF_WEB_DYNOS http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
-      value: 1,
+      "value": 1,
       "required": true
     },
     "NUMBER_OF_WORKER_DYNOS": {
       "description": "NUMBER_OF_WORKER_DYNOS http://jollygoodcode.com/blog/2015/12/08/optimum-sidekiq-configuration-on-heroku-with-puma.html",
-      value: 1,
+      "value": 1,
       "required": true
     }
   },
