@@ -5,9 +5,6 @@ rvm:
   - 2.2.4
 before_script:
   - psql -c 'create database reread_test;' -U postgres
-  - bin/setup
-script:
-  - bin/rspec
 notifications:
   email: false
   slack:
