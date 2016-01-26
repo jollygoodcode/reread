@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.3.0"
 
 # Server & DB
-gem 'rails', '~> 4.2.5'
+gem 'rails', '~> 4.2.5.1'
 gem 'puma'
 gem 'pg', '~> 0.15'
 
@@ -58,4 +58,6 @@ group :test do
   gem 'shoulda'
 end
 
-gem 'nokogiri', '>= 1.6.7.1'
+gem 'nokogiri', '>= 1.6.7.2'
+
+gem 'rails-html-sanitizer', '~> 1.0.3'
