@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.2.3"
+ruby "2.3.0"
 
 # Server & DB
 gem 'rails', '~> 4.2.5'
@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'spring'
+  # gem 'spring'
   gem 'web-console'
   gem 'letter_opener'
 end

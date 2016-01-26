@@ -1,5 +1,6 @@
 # reread.io
 
+[![Build Status](https://travis-ci.org/jollygoodcode/reread.svg)](https://travis-ci.org/jollygoodcode/reread)
 [![Code Climate](https://codeclimate.com/github/jollygoodcode/reread/badges/gpa.svg)](https://codeclimate.com/github/jollygoodcode/reread)
 
 Read and Learn again - Time to rediscover those saved and forgotten bookmarks.
