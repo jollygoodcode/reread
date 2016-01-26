@@ -2,7 +2,7 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - 2.2.4
+  - 2.3.0
 before_script:
   - psql -c 'create database reread_test;' -U postgres
 notifications:
