@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'spring'
+  # gem 'spring'
   gem 'web-console'
   gem 'letter_opener'
 end
