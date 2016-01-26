@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.2.3"
 
 # Server & DB
-gem 'rails', '4.2.5'
+gem 'rails', '~> 4.2.5'
 gem 'puma'
 gem 'pg', '~> 0.15'
 
