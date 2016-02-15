@@ -43,7 +43,7 @@ GEM
       rails
       safely_block
     arel (6.0.3)
-    autoprefixer-rails (6.3.1)
+    autoprefixer-rails (6.3.2)
       execjs
       json
     bootstrap-sass (3.3.6)
@@ -88,7 +88,7 @@ GEM
       sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    hashdiff (0.2.3)
+    hashdiff (0.3.0)
     hashie (3.4.3)
     heroku-deflater (0.6.2)
       rack (>= 1.4.5)
