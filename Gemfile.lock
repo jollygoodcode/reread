@@ -43,7 +43,7 @@ GEM
       rails
       safely_block
     arel (6.0.3)
-    autoprefixer-rails (6.3.2)
+    autoprefixer-rails (6.3.3)
       execjs
       json
     bootstrap-sass (3.3.6)
