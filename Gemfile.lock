@@ -188,7 +188,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
     redis (3.2.2)
-    rspec-core (3.4.2)
+    rspec-core (3.4.3)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -271,7 +271,7 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    webmock (1.22.6)
+    webmock (1.24.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
