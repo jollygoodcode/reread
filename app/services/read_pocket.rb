@@ -24,10 +24,10 @@ class ReadPocket < ActiveJob::Base
     attr_accessor :user, :url
 
     def find_by_pocket_url(url)
-      user.pockets.find_by("raw -> 'item_id' ? '#{url.sub(POCKET_URL, ''.freeze)}'")
+      user.pockets.find_by("raw -> 'item_id' ? :url", url: url.sub(POCKET_URL, ''.freeze))
     end
 
     def find_by_given_url(url)
-      user.pockets.find_by("raw -> 'given_url' ? '#{url}'")
+      user.pockets.find_by("raw -> 'given_url' ? :url", url: url)
     end
 end
