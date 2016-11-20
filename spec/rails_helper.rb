@@ -59,4 +59,8 @@ RSpec.configure do |config|
 
   config.include AuthenticationHelper
   config.include RequestStubHelper
+
+  # https://github.com/thoughtbot/shoulda-matchers/issues/951
+  config.include(Shoulda::Matchers::ActiveModel , type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end
