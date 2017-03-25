@@ -48,10 +48,13 @@ class RePocket
         begin
           _response = HTTP.get(url)
 
-          if _response.status == 401
+          case
+          when _response.status == 401
             # User has probably revoked our permissions. Hence, let's pause it.
             user.setting.update(pause: true)
 
+            { "list" => [] }
+          when _response.status == 503
             { "list" => [] }
           else
             # Optimistic as default, monitor for other exceptions

@@ -206,6 +206,20 @@ RSpec.describe RePocket do
         expect(user.pause).to be_truthy
       end
     end
+
+    context '503 service unavailable' do
+      before do
+        stub_pocket_get_503_request(user.token)
+      end
+
+      it 'fails gracefully' do
+        expect {
+          service.retrieve
+        }.not_to change(Pocket, :count)
+
+        expect(service.retrieve).to be_blank
+      end
+    end
   end
 
   describe '#send_email' do

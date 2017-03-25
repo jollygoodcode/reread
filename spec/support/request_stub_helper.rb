@@ -14,6 +14,11 @@ module RequestStubHelper
       .to_return(:status => 401, :body => "401 Unauthorized", :headers => {})
   end
 
+  def stub_pocket_get_503_request(token)
+    stub_request(:get, "https://getpocket.com/v3/get?access_token=#{token}&consumer_key=#{ENV['POCKET_CONSUMER_KEY_V1']}&detailType=complete&state=unread")
+      .to_return(:status => 503, :body => "503 Service Unavailable", :headers => {})
+  end
+
   def stub_pocket_send_request(token, item, time)
     stub_request(:get, "https://getpocket.com/v3/send?access_token=#{token}&consumer_key=#{ENV['POCKET_CONSUMER_KEY_V2']}&actions=%5B%7B%22action%22:%22archive%22,%22item_id%22:#{item},%22time%22:#{time}%7D%5D").
       to_return(:status => 200, :body => "", :headers => {})
