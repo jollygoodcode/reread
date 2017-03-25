@@ -11,6 +11,8 @@ class ReadPocket < ActiveJob::Base
   end
 
   def read!
+    return if url.blank?
+
     pocket = send("find_by_#{user.redirect_to}", url)
     return if pocket.blank?
 

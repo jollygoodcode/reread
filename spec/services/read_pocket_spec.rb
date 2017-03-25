@@ -6,6 +6,19 @@ RSpec.describe ReadPocket do
 
     let(:service) { ReadPocket.new(user, redirect_url) }
 
+    context 'when url is nil, fixes https://github.com/jollygoodcode/reread-issues/issues/25' do
+      let(:redirect_url) { nil }
+      let!(:pocket)      { user.pockets.create!(raw: { item_id: '12345' }) }
+
+      before { user.setting = create(:setting, redirect_to: :pocket_url, archive: false) }
+
+      it 'fails gracefully' do
+        expect {
+          service.read!
+        }. to_not raise_error
+      end
+    end
+
     context 'when user prefers to be redirected to Pocket' do
       let(:redirect_url) { 'https://getpocket.com/a/read/12345' }
       let!(:pocket)      { user.pockets.create!(raw: { item_id: '12345' }) }
