@@ -43,7 +43,7 @@ GEM
       rails
       safely_block
     arel (6.0.3)
-    autoprefixer-rails (6.3.3.1)
+    autoprefixer-rails (6.3.4)
       execjs
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
@@ -63,7 +63,7 @@ GEM
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160309)
+    domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.1.0)
     dotenv-rails (2.1.0)
@@ -91,7 +91,7 @@ GEM
     hashie (3.4.3)
     heroku-deflater (0.6.2)
       rack (>= 1.4.5)
-    http (1.0.3)
+    http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
@@ -150,7 +150,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    puma (3.1.0)
+    puma (3.2.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -178,7 +178,7 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.4)
-    rails_utils (3.3.5)
+    rails_utils (4.0.0)
       rails (>= 3.2)
     railties (4.2.5.2)
       actionpack (= 4.2.5.2)
